@@ -27,7 +27,7 @@ const Chat = () => {
 
     // Filter users based on checkbox state
     const filteredUsers = showOnlineOnly
-    ? allUsers?.filter((user: Chat) => OnlineUsers.includes(user._id))
+    ? allUsers?.filter((user: Chat) => OnlineUsers.includes(user?._id))
     : allUsers
 
   return (

@@ -84,7 +84,7 @@ const AuthForm = ({ type }: { type: string }) => {
         onBlur={handleBlur}
       />
       {errors.fullname && touched.fullname && (
-        <p className="text-red text-sm">{errors.fullname}</p>
+        <p className="text-red-500 text-sm">{errors.fullname}</p>
       )}
 
 <input
@@ -97,7 +97,7 @@ const AuthForm = ({ type }: { type: string }) => {
     onBlur={handleBlur}
   />
   {errors.email && touched.email && (
-    <p className="text-red text-sm">{errors.email}</p>
+    <p className="text-red-500 text-sm">{errors.email}</p>
   )}
     </>
   )}
@@ -112,7 +112,7 @@ const AuthForm = ({ type }: { type: string }) => {
     onBlur={handleBlur}
   />
   {errors.username && touched.username && (
-    <p className="text-red text-sm">{errors.username}</p>
+    <p className="text-red-500 text-sm">{errors.username}</p>
   )}
 
 
@@ -126,7 +126,7 @@ const AuthForm = ({ type }: { type: string }) => {
     onBlur={handleBlur}
   />
   {errors.password && touched.password && (
-    <p className="text-red text-sm">{errors.password}</p>
+    <p className="text-red-500 text-sm">{errors.password}</p>
   )}
 
   <motion.button

@@ -58,7 +58,7 @@ const Searchbar = () => {
         }
       `}</style>
       {posts?.length === 0 ? (
-        <p>No post</p>
+        <p>No Posts Relating to your Search 🤔</p>
       ) : (
         <div>
           {posts?.data?.map((post: PostCardProps) => {

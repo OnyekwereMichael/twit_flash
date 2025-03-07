@@ -182,7 +182,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
       {posts && posts?.length === 0 && (
         <div className="flex flex-col items-center justify-center h-screen">
           <IoSadOutline className="text-gray-300 text-6xl mb-2" />
-          <h1 className="text-2xl font-semibold text-gray-300">No Posts Relating to your Search 🤔</h1>
+          <h1 className="text-2xl font-semibold text-gray-300">No Posts Yet</h1>
           <p className="text-gray-400">Be the first to post something!</p>
         </div>
       )}
