@@ -753,3 +753,40 @@ export const useGetMessages = (mid: string) => {
       },
     });
   };
+
+  export const useSearchPosts = (query: string) => {
+    return useQuery({
+        queryKey: [QUERY_KEYS.SEARCH_POSTS, query],
+        queryFn: async () => {
+            if (!query || query.trim() === "") return [];  // Prevent empty queries
+            
+            try {
+                const res = await fetch(`${BASE_URL}/api/post/search?query=${query}`, {
+                    method: "GET",
+                    credentials: "include", // Important! Sends cookies
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+
+                const data = await res.json();
+                
+                if (!res.ok) throw new Error(data.message || "Failed to fetch posts"); // Use message, not error
+                
+                console.log(data);
+                return data;
+            } catch (error: unknown) {
+                console.error(error);
+            
+                if (error instanceof Error) {
+                    toast.error(error.message || 'Failed to get post');
+                } else {
+                    toast.error('Failed to create post');
+                }
+                throw error;
+            }
+        },
+        enabled: !!query && query.trim() !== "", // Prevents requests when query is empty
+        retry: false,
+    });
+};

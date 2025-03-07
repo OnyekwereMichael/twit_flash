@@ -11,15 +11,19 @@
   "dependencies": {
     "@tanstack/react-query": "^5.67.1",
     "@tanstack/react-query-devtools": "^5.67.1",
+    "animate": "^1.0.0",
+    "autoprefixer": "^10.4.20",
     "daisyui": "^5.0.0",
     "formik": "^2.4.6",
     "framer-motion": "^12.4.10",
     "next": "15.2.1",
+    "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
     "react-icons": "^5.5.0",
     "socket.io-client": "^4.8.1",
+    "tailwindcss-animate": "^1.0.7",
     "yup": "^1.6.1"
   },
   "devDependencies": {
@@ -30,7 +34,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.0.10",
     "typescript": "^5"
   }
 }

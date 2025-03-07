@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { postSchema } from "@/app/lib/validation";
 import { useCreatePost } from "@/app/lib/query";
-import Loader from "../loader/page";
 import FileUploader from "./Fileuploader/FileUploader";
 import { useRouter } from "next/navigation";
 
@@ -38,7 +37,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
     console.log("Error", error.message);
   }
 
-  if (isPending) return <Loader />;
+  // if (isPending) return <Loader />;
 
   return (
     <Formik
@@ -66,7 +65,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
               placeholder="Enter your text"
               className="shad-textarea custom-scrollbar w-[48vw] p-4 mt-2 max-sm:w-full placeholder:text-sm"
             />
-            <ErrorMessage name="caption" component="div" className="text-red text-sm mt-2" />
+            <ErrorMessage name="caption" component="div" className="text-red-500  text-sm mt-2" />
           </div>
 
           <div className="flex flex-col">
@@ -77,7 +76,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
               placeholder="Enter Tags"
               className="shad-textarea custom-scrollbar w-[48vw] p-4 mt-2 max-sm:w-full placeholder:text-sm"
             />
-            <ErrorMessage name="tags" component="div" className="text-red border border-red-5 text-sm mt-2" />
+            <ErrorMessage name="tags" component="div" className="text-red-500 text-sm mt-2" />
           </div>
 
           {/* File Uploader */}
@@ -85,7 +84,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
 
           {/* Buttons */}
           <div className="flex justify-end items-center gap-4">
-            <button type="button" className="shad-button_dark_4">
+            <button type="button" className="shad-button_dark_4" onClick={() => router.push('/')}>
               Cancel
             </button>
             <button
@@ -93,9 +92,9 @@ const PostForm = ({ post, action }: PostFormProps) => {
               disabled={isSubmitting}
               className="shad-button_primary whitespace-nowrap"
             >
-              {isSubmitting ? (
+              {isSubmitting || isPending ? (
                 <div className="flex items-center gap-2">
-                  <div className="animate-spin rounded-full h-4 w-4 border-t-4 border-b-4 border-white"></div>
+                  <div className="rounded-full h-4 w-4 border-t-4 border-b-4 border-white animate-spin "></div>
                 </div>
               ) : (
                 `${action} Post`

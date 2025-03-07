@@ -11,6 +11,11 @@ import Comment from './component/comment'
 import { getRelativeTime } from '@/app/lib/date';
 import cloudinaryLoader from '@/app/lib/cloudinary'
 import { IoSadOutline } from 'react-icons/io5';
+import Search from '../../../../../../public/assets/icons/search.svg'
+import { useCallback, useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+
 
 interface Commentt {
   _id: string;
@@ -42,8 +47,57 @@ interface PostCardProps {
 }
 
 
+//  // Debounced function to handle redirection
+//  const debouncedRedirect = useCallback(((query: string) => {
+//   clearTimeout(debouncedRedirect.timeout);
+//   debouncedRedirect.timeout = setTimeout(() => {
+//     if (query.trim()) {
+//       router.push(`/Search?query=${encodeURIComponent(query)}`);
+//     } else {
+//       router.push("/Search");
+//     }
+//   }, 500);
+// }) as ((query: string) => void) & { timeout?: NodeJS.Timeout }, [router]);
+
+// // Store timeout on the function object
+// debouncedRedirect.timeout = undefined;
+
+
+
 
 const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?: boolean, setIsComment: React.Dispatch<React.SetStateAction<boolean>> }) => {
+  const [search, setSearch] = useState("");
+  const router = useRouter();
+  
+  function debounce(func: (arg: string) => void, wait: number) {
+    let timeout: NodeJS.Timeout;
+    return (arg: string) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func(arg), wait);
+    };
+  }
+
+  
+  // Debounced function to handle redirection
+  const debouncedRedirect = useCallback(
+    debounce((query: string) => {
+      if (query.trim()) {
+        router.push(`/Search?query=${encodeURIComponent(query)}`);
+      } else {
+        router.push("/Search"); // Redirect to base search page
+      }
+    }, 500),
+    [router]
+  );
+
+  // Handle input change
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setSearch(value);
+    debouncedRedirect(value);
+  };
+
+
   const {data:posts, isError, error, isLoading} = GetAllPost(type)
   const {data:authUser, isLoading:isloadingAuth, isError:isErrorauth, error:errorauth} = GetAuthUser()
   const { mutate: deletePosts, isPending: isDeleting } = useDeletePost();
@@ -67,6 +121,9 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
       deletePosts(pid);
   };
 
+      
+      
+
   // if(isDeleting) {
   //   return <div className="flex items-center gap-2 h-screen justify-center">
   //   <div className="animate-spin rounded-full h-4 w-4 border-t-4 border-b-4 border-white"></div>
@@ -77,12 +134,13 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
   return (
     
     <section>  
-<div className={`flex gap-4 mb-4 max-sm:mx-4 ${type === 'following' ? 'mt-4' : ''}`}>
+<div className={`flex max-sm:flex-col gap-4 mb-4 max-sm:mx-4 ${type === 'following' ? 'mt-4' : ''}`}>
   {type === 'all' && 'following' && (
  <>
+ <div className="flex items-center gap-4">
     <Link href={'/'}>
         <button
-          className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+          className={`px-4 py-[10px] rounded-lg text-sm font-medium transition-all ${
             'bg-dark-4  text-gray-300'
           }`}
         >
@@ -91,7 +149,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
         </Link>
         <Link href={'/postcard/following'}>
         <button
-          className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+          className={`px-4 py-[10px] rounded-lg text-sm font-medium transition-all ${
              'bg-dark-4  text-gray-300'
           }`}
         
@@ -99,6 +157,15 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
           Following
         </button>
           </Link>
+          </div>
+          
+          <form onSubmit={(e) => e.preventDefault()}>
+       <div className="flex gap-1 px-4 w-full rounded-lg bg-dark-4 items-center">
+            <Image src={Search} alt="search" width={18} height={18} />
+            <input type='text' placeholder='Search' value={search} className='explore-search ring-offset-0 outline-none' onChange={handleInputChange}/>
+          </div>
+          </form>
+         
  </>
   ) }
         </div>
@@ -115,7 +182,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
       {posts && posts?.length === 0 && (
         <div className="flex flex-col items-center justify-center h-screen">
           <IoSadOutline className="text-gray-300 text-6xl mb-2" />
-          <h1 className="text-2xl font-semibold text-gray-300">No Posts Yet</h1>
+          <h1 className="text-2xl font-semibold text-gray-300">No Posts Relating to your Search 🤔</h1>
           <p className="text-gray-400">Be the first to post something!</p>
         </div>
       )}
@@ -136,12 +203,12 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
     
               <div className="flex flex-col">
                 <p className="base-medium lg:body-bold text-light-1">{post?.user?.fullname}</p>
-                <div className="flex gap-2 text-light-3">
-                  <p className="subtle-semibold lg:small-regular">
+                <div className="flex gap-2 items-center text-light-3">
+                  <p className="small-regular max-sm:subtle-semibold">
                     {getRelativeTime(post.createdAt)}
                   </p>
                   <span>-</span>
-                  <p className="subtle-semibold lg:small-regular">Benin</p>
+                  <p className="max-sm:subtle-semibold small-regular">Benin</p>
                 </div>
               </div>
             </div>
@@ -173,7 +240,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
     
           {/* Post Content Section */}
           <Link href={`/`}>
-            <div className="small-medium lg:base-medium py-5 mb-4 border-b border-gray-200">
+            <div className="max-sm:text-[15px] font-medium leading-[140%] lg:base-medium py-5 mb-4 border-b border-gray-200">
               <p>{post?.caption}</p>
 
               {post?.tags?.map((tag: string, index: number) => (

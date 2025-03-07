@@ -27,7 +27,7 @@ const RightPanel = () => {
 
 	return (
 		<div className="rightsidebar">
-			<div className="flex flex-col gap-6">
+			<div className="flex flex-col gap-3">
 				<div className="flex gap-3 items-center">
 				<p className="font-bold text-xl text-white">Who to follow</p>
 				<HiUserAdd size={20} />

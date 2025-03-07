@@ -6,10 +6,11 @@ import { useDeleteAllNotification, useGetNotification } from "@/app/lib/query";
 import Image from "next/image";
 import Profile from "../../../../../../public/assets/profilepic.svg";
 import cloudinaryLoader from "@/app/lib/cloudinary";
+import { IoChatbubbleEllipses } from "react-icons/io5";
 
 interface Notification {
     _id: string;
-    type: "follow" | "like";
+    type: "follow" | "like" | "message";
     sender: {
         username: string;
         profileImg: string;
@@ -28,13 +29,13 @@ const NotificationPage = () => {
     };
 
     return (
-        <div className="w-[50vw] overflow-y-auto max-h-[650px] max-sm:w-full bg-dark-2 rounded-3xl border border-dark-4 p-5 lg:p-4 mt-4 text-gray-900">
+        <div className="w-[50vw] overflow-y-auto max-h-[630px] max-sm:w-full bg-dark-2 rounded-3xl border border-dark-4 p-5 lg:p-4 mt-4 text-gray-900">
             {/* Header */}
             <div className="flex items-center justify-between">
                 <h2 className="text-white font-semibold text-lg">Notifications</h2>
 				{notificationData?.notifications.length >= 1 && (		
                 <div className="flex items-center gap-2 cursor-pointer" onClick={deleteNotifications}>
-                    <FaTrash className="w-4 h-4 text-red" />
+                    <FaTrash className="w-4 h-4 text-red-500" />
                     <p className="text-white text-right">Delete all notifications</p>
                 </div>
 				) }
@@ -63,10 +64,13 @@ const NotificationPage = () => {
                             {/* Notification Icon */}
                             <div className="flex-shrink-0">
                                 {notification.type === "follow" && (
-                                    <FaUser className="w-6 h-6 text-purple-500" />
+                                    <FaUser className="w-6 h-6 text-purple-500 animate-pulse" />
                                 )}
                                 {notification.type === "like" && (
-                                    <FaHeart className="w-6 h-6 text-red" />
+                                    <FaHeart className="w-6 h-6 text-red-500 animate-pulse" />
+                                )}
+                                {notification.type === "message" && (
+                                    <IoChatbubbleEllipses className="w-6 h-6 text-blue-500 animate-pulse" />
                                 )}
                             </div>
 
@@ -96,8 +100,11 @@ const NotificationPage = () => {
                                         <span className="text-purple-500">
                                             {notification.type === "follow"
                                                 ? "started following you"
-                                                : "liked your post"}
+                                                : notification.type === "message"
+                                                    ? "sent you a message"
+                                                    : "liked your post"}
                                         </span>
+
                                     </p>
                                 </div>
                             </Link>

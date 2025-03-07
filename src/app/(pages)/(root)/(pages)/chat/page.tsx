@@ -69,8 +69,8 @@ const Chat = () => {
               </div>
             ): (
               <div className="absolute top-2 left-2 flex items-center gap-1">
-              <span className="w-2 h-2 bg-red -500 rounded-full animate-pulse"></span>
-              <p className="text-red text-xs font-medium">Offline</p>
+              <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+              <p className="text-red-500 text-xs font-medium ">Offline</p>
             </div>
             )}
 

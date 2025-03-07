@@ -7,24 +7,27 @@ import cloudinaryLoader from '@/app/lib/cloudinary'
 import { formatMessageTime } from '@/app/lib/date'
 import { IoChatbubbleEllipsesOutline } from 'react-icons/io5'
 
-// interface User {
-//   user: {
-//     _id:string
-//   }
-// }
+interface User {
+  username: string;
+  profileImg: string;
+  _id: string;
+}
 
-// interface MessageContainerProps {
-//     _id: string;
-//     createdAt: string,
-//     text: string,
-//     image: string,
-//     senderId: string
-//     username: string;
-//     profileImg: string;
-// }
-const MessageContainer = (user) => {
+interface MessageProps {
+  user?: User | null;
+}
+
+interface Message {
+  _id: string;
+  text: string;
+  image: string;
+  senderId: string;
+  createdAt: string;
+  updatedAt: string;
+}
+const MessageContainer: React.FC<MessageProps> = ({user}) => {
   const {data:getCurrentUser} = GetAuthUser()
-  const {data:Messages} = useGetMessages(user._id)
+  const {data:Messages} = useGetMessages(user?._id)
 
   const messageRef = useRef(null)
 
@@ -47,7 +50,7 @@ useEffect(() => {
       `}</style>
       
 
-         {Messages?.map((message) => (
+         {Messages?.map((message: Message) => (
           <div key={message._id} className={`chat  ${message.senderId === getCurrentUser?._id ? 'chat-end' : 'chat-start'}`} ref={messageRef}>
             <div className='chat-image avatar'>
               <div className='size-10 rounded-full border'>
