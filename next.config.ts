@@ -7,7 +7,8 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",  // Matches any request starting with /api/
-        destination: "http://localhost:5000/api/:path*", // Forwards to backend
+        destination: "https://twit-flash-backend-1.onrender.com/api/:path*", // Forwards to backend
+        // http://localhost:5000
       },
     ];
   },
