@@ -8,7 +8,7 @@ import { io, Socket } from "socket.io-client";
 import { useRouter } from "next/navigation";
 
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://twit-flash-backend-1.onrender.com";
 let socket: Socket | null = null;
 
 export const connectUser = (userId: string) => {
