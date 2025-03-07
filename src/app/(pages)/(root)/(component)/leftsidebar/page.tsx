@@ -54,8 +54,8 @@ const LeftSideBar = () => {
                const dynamicRoute = link.label === "Profile" && typeof link.route === 'function' ? link.route(authUser?.username) : link.route;
                const isActive = pathname === dynamicRoute;
               return (
-                <li className={`leftsidebar-link group ${isActive && 'bg-purple-500'}`} key={link.label}>
-                  <Link href={typeof dynamicRoute === 'string' ? dynamicRoute : '#'}  className={`flex gap-4 items-center py-4 px-${isActive ? '4' : '2'}`}>
+                <li className={`leftsidebar-link group ${isActive && 'bg-purple-500 px-2'}`} key={link.label}>
+                  <Link href={typeof dynamicRoute === 'string' ? dynamicRoute : '#'} className="flex gap-4 items-center py-4">
                     <Image src={link.imgURL} alt="" className={`group-hover:invert-white ${isActive && 'invert-white'} w-6 h-6`} width={6} height={6}/>
                     <p className="font-medium text-[18px] font-Asul">{link.label}</p>
                   </Link>
@@ -66,7 +66,7 @@ const LeftSideBar = () => {
         </div>
 
         {/* Logout button */}
-        <button className="shad-button_ghost text-center ml-4" onClick={() => logout()}>
+        <button className="shad-button_ghost text-center " onClick={() => logout()}>
           <Image src={Logout} alt="" />
           <p className="sm:medium lg:base:medium font-medium text-[18px]  font-Asul">
             {isPending ? 'Logging out...' : 'Logout'}
