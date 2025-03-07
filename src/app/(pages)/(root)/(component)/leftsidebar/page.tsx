@@ -55,7 +55,7 @@ const LeftSideBar = () => {
                const isActive = pathname === dynamicRoute;
               return (
                 <li className={`leftsidebar-link group ${isActive && 'bg-purple-500'}`} key={link.label}>
-                  <Link href={typeof dynamicRoute === 'string' ? dynamicRoute : '#'} className="flex gap-4 items-center p-4">
+                  <Link href={typeof dynamicRoute === 'string' ? dynamicRoute : '#'}  className={`flex gap-4 items-center py-4 px-${isActive ? '4' : '2'}`}>
                     <Image src={link.imgURL} alt="" className={`group-hover:invert-white ${isActive && 'invert-white'} w-6 h-6`} width={6} height={6}/>
                     <p className="font-medium text-[18px] font-Asul">{link.label}</p>
                   </Link>

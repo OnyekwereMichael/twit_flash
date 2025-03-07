@@ -41,7 +41,7 @@ export const disconnectUser = () => {
     return useQuery({
         queryKey: ["online-users"],
         queryFn: async () => {
-            const res = await fetch("http://localhost:5000/online-users");
+            const res = await fetch("https://twit-flash-backend-1.onrender.com/online-users");
             const data = await res.json();
             return data.onlineUsers;
         },
