@@ -66,9 +66,9 @@ const LeftSideBar = () => {
         </div>
 
         {/* Logout button */}
-        <button className="shad-button_ghost text-center" onClick={() => logout()}>
+        <button className="shad-button_ghost text-center ml-4" onClick={() => logout()}>
           <Image src={Logout} alt="" />
-          <p className="sm:medium lg:base:medium font-medium text-[15px]">
+          <p className="sm:medium lg:base:medium font-medium text-[18px]  font-Asul">
             {isPending ? 'Logging out...' : 'Logout'}
           </p>
         </button>
