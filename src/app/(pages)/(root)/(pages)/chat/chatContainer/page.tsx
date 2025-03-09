@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import ChatHeader from "./chatHeader/page";
 import MessageInput from "./messageInput/page";
 import MessageContainer from "./messageContainer/page";
+import Loader from "../../../(component)/loader/page";
 
 interface User {
   username: string;
@@ -13,7 +14,7 @@ interface User {
 
 const ChatContainer = () => {
   return (
-    <Suspense fallback={<div>Loading chat...</div>}>
+    <Suspense fallback={<div><Loader /></div>}>
       <ChatContent />
     </Suspense>
   );

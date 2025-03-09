@@ -92,7 +92,7 @@ const MessageInput: React.FC<MessageProps>  = ({ user }) => {
                   name="text"
                   as="input"
                   type="text"
-                  className="w-full bg-gray-700 text-white input rounded-lg input-sm sm:input-md focus-visible:bg-none outline-none max-sm:h-12 max-sm:text-sm max-sm:w-full"
+                  className="w-full bg-gray-700 text-white input rounded-lg input-sm sm:input-md focus:ring-0 focus:outline-none focus:border-none outline-none hover:none max-sm:h-12 max-sm:text-sm max-sm:w-full"
                   placeholder="Type a message..."
                 />
                 <input
@@ -104,7 +104,7 @@ const MessageInput: React.FC<MessageProps>  = ({ user }) => {
                 />
                 <button
                   type="button"
-                  className={`btn btn-circle text-gray-400 hover:text-gray-500 max-sm:h-11 max-sm:w-11 ${values.image ? "text-emerald-500" : ""} max-sm:text-sm`}
+                  className={`btn btn-circle ml-2 text-gray-400 hover:text-gray-500 max-sm:h-11 max-sm:w-11 ${values.image ? "text-emerald-500" : ""} max-sm:text-sm`}
                   onClick={() => fileInputRef.current?.click()}
                 >
                   <FaImage size={16} />
