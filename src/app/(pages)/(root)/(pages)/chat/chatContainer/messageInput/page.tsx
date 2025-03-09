@@ -92,7 +92,7 @@ const MessageInput: React.FC<MessageProps>  = ({ user }) => {
                   name="text"
                   as="input"
                   type="text"
-                  className="w-full bg-gray-700 text-white input rounded-lg input-sm sm:input-md focus:ring-0 focus:outline-none focus:border-none outline-none hover:none max-sm:h-12 max-sm:text-sm max-sm:w-full"
+                  className="w-full bg-gray-700 text-white input rounded-lg input-sm sm:input-md focus:ring-0 focus:outline-none focus:border-none focus outline-none hover:none max-sm:h-12 max-sm:text-sm max-sm:w-full"
                   placeholder="Type a message..."
                 />
                 <input
