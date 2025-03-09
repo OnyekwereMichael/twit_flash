@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 
 
 const BASE_URL = "https://twit-flash-backend-1.onrender.com";
-let socket: Socket | null = null;
+let socket: Socket | null = null; // Socket instance
 
 export const connectUser = (userId: string) => {
     if (!socket) {
