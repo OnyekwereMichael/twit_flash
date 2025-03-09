@@ -45,7 +45,7 @@ const LeftSideBar = () => {
             <Image loader={cloudinaryLoader} src={authUser?.profileImg || Profile} alt="Profile_pic" className="w-14 h-14 rounded-full" width={14} height={14}/>
             <div className="flex flex-col">
               <p className="body-bold">{authUser?.fullname}</p>
-              <p className="text-light-3 small-regular">@{authUser?.username}</p>
+              <p className="text-light-3 text-[16px] leading-[140%] font-semibold">@{authUser?.username}</p>
             </div>
           </Link>
 
