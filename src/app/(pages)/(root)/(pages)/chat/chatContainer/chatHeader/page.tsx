@@ -22,7 +22,7 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ user }) => {
   const { data: OnlineUsers } = useOnlineUsers();
 
   return (
-    <div className="p-3 max-sm:bg-purple-600 border-b border-gray-700 bg-dark-3 flex items-center justify-between max-sm:w-full">
+    <div className="p-3 max-sm:bg-purple-600 border-b border-gray-700 bg-dark-3 flex items-center justify-between max-sm:w-full ">
       {/* User Info */}
       <div className="flex items-center gap-3">
         <div className="relative">
