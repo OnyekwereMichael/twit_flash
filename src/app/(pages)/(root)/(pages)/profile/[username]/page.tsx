@@ -2,8 +2,6 @@
 import { ChangeEvent, useRef, useState } from "react";
 import Profile from "../../../../../../../public/assets/profilepic.svg";
 import Cover from "../../../../../../../public/assets/side-img.svg";
-
-
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoCalendarOutline } from "react-icons/io5";
 import { FaLink } from "react-icons/fa";
