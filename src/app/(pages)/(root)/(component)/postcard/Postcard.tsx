@@ -14,6 +14,7 @@ import { IoSadOutline } from 'react-icons/io5';
 import Search from '../../../../../../public/assets/icons/search.svg'
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Profile1 from '../../../../../../public/assets/profilepic.svg'
 
 
 
@@ -190,16 +191,34 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
       {posts?.map((post:PostCardProps) => {
       const isLiked = post.likes.includes(authUser._id);
       const isMyPost = authUser._id === post?.user?._id; 
-      // console.log(`post ${post}`);
+ 
       
         return (
           <div key={post._id} className='border-dark-4 bg-dark-2 overflow-y-auto p-5 lg:p-7 border  rounded-3xl mb-6 '>  
           {/* Header Section */}
           <div className="flex-between w-full mb-4">
             <div className="flex items-center gap-3">
-              <Link href={`profile/`} className="flex gap-3 items-center">
-                <Image loader={cloudinaryLoader} src={ `${post?.user?.profileImg || Profile}`} alt="creator" className="h-12 w-12 rounded-full" width={12} height={12}/>
-              </Link>
+            <Link href={`profile/`} className="flex gap-3 items-center">
+  {post?.user?.profileImg ? (
+    <Image 
+      loader={cloudinaryLoader} 
+      src={post.user.profileImg} 
+      alt="creator" 
+      className="h-12 w-12 rounded-full" 
+      width={48} 
+      height={48} 
+    />
+  ) : (
+    <div className="h-12 w-12 rounded-full flex items-center justify-center bg-gray-300 text-gray-700 font-semibold">
+      {post?.user?.fullname
+        ?.split(" ")
+        .map((name) => name[0])
+        .join("")
+        .toUpperCase() || "U"}
+    </div>
+  )}
+</Link>
+
     
               <div className="flex flex-col">
                 <p className="base-medium lg:body-bold text-light-1">{post?.user?.fullname}</p>

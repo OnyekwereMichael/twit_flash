@@ -50,6 +50,8 @@ const PostForm = ({ post, action }: PostFormProps) => {
           onSuccess: () => {
             router.push("/");
             resetForm();
+            console.log(values);
+            
           },
         });
         setSubmitting(false);

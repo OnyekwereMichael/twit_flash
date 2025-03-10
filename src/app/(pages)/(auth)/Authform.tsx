@@ -60,7 +60,7 @@ const AuthForm = ({ type }: { type: string }) => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative z-10  lg:bg-[#1A1C26] bg-opacity-80 lg:backdrop-blur-xl lg:shadow-2xl rounded-2xl p-10 border max-sm:border-none w-[50%]  max-sm:p-1 max-sm:w-full"
+        className="relative z-10  lg:bg-[#1A1C26] bg-opacity-80 lg:backdrop-blur-xl lg:shadow-2xl rounded-2xl p-10  max-sm:border-none w-[50%]  max-sm:p-1 max-sm:w-full"
       >
         <Link href="/">
           <h1 className="text-white  text-3xl font-semibold">TWIT-FLASH ✨</h1>

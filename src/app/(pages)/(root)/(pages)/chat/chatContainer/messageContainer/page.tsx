@@ -56,16 +56,25 @@ const MessageContainer: React.FC<MessageProps> = ({ user }) => {
         <div key={message._id} className={`chat  ${message.senderId === getCurrentUser?._id ? 'chat-end' : 'chat-start'}`} ref={messageRef}>
           <div className='chat-image avatar'>
             <div className='size-10 rounded-full border'>
-              <Image
-                loader={cloudinaryLoader}
-                src={message.senderId === getCurrentUser?._id && getCurrentUser?.profileImg?.trim()
-                  ? getCurrentUser.profileImg
-                  : Profile}
-                alt="Profile"
-                width={40}
-                height={40}
-                className='rounded-full w-10 h-10'
-              />
+            {message.senderId === getCurrentUser?._id && getCurrentUser?.profileImg?.trim() ? (
+  <Image
+    loader={cloudinaryLoader}
+    src={getCurrentUser.profileImg}
+    alt="Profile"
+    width={40}
+    height={40}
+    className="rounded-full w-10 h-10"
+  />
+) : (
+  <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-300 text-gray-700 font-semibold">
+    {getCurrentUser?.fullname
+      ?.split(" ")
+      .map((name: string) => name[0])
+      .join("")
+      .toUpperCase() || "U"}
+  </div>
+)}
+
 
 
             </div>
