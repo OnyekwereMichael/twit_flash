@@ -63,7 +63,7 @@ const AuthForm = ({ type }: { type: string }) => {
         className="relative z-10  lg:bg-[#1A1C26] bg-opacity-80 lg:backdrop-blur-xl lg:shadow-2xl rounded-2xl p-10  max-sm:border-none w-[50%]  max-sm:p-1 max-sm:w-full"
       >
         <Link href="/">
-          <h1 className="text-white  text-3xl font-semibold">TWIT-FLAShhhH ✨</h1>
+          <h1 className="text-white  text-3xl font-semibold">TWIT-FLASH ✨</h1>
         </Link>
         <div className="flex  gap-8 mt-6">
           <Link href="/signup" className={`${pathname === '/signup' ? 'border-b-2' : ''} text-[#8C67F6] font-bold`}>SIGN UP</Link>

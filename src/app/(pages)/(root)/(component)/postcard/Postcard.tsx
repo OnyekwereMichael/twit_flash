@@ -14,9 +14,6 @@ import { IoSadOutline } from 'react-icons/io5';
 import Search from '../../../../../../public/assets/icons/search.svg'
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Profile1 from '../../../../../../public/assets/profilepic.svg'
-
-
 
 interface Commentt {
   _id: string;

@@ -1,7 +1,6 @@
 'use client'
 import { GetAuthUser, useGetMessages } from '@/app/lib/query'
 import React, { useEffect, useRef } from 'react'
-import Profile from '../../../../../../../../public/assets/profilepic.svg'
 import Image from 'next/image'
 import cloudinaryLoader from '@/app/lib/cloudinary'
 import { formatMessageTime } from '@/app/lib/date'
