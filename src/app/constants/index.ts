@@ -13,7 +13,7 @@ export const sidebarLinks:INavLink[] = [
     {
       imgURL: Wallpaper,
       route: "/notification",
-      label: "Notifications",
+      label: "Notificationss",
     },
     {
       imgURL: People,

@@ -11,7 +11,7 @@ import Loader from "../(root)/(component)/loader/page";
 
 
 const AuthForm = ({ type }: { type: string }) => {
-  const pathname = usePathname() ;
+  const pathname = usePathname();
   const router = useRouter();
 
   const { mutate: createNewUser, isPending: isSigningUp, error: signUpError, isError: isSignUpError } = CreateUserAccount();
