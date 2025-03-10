@@ -99,7 +99,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
   const {data:posts, isError, error, isLoading} = GetAllPost(type)
   const {data:authUser, isLoading:isloadingAuth, isError:isErrorauth, error:errorauth} = GetAuthUser()
   const { mutate: deletePosts, isPending: isDeleting } = useDeletePost();
-  console.log('hr', posts);
+  console.log('hrr', posts);
   console.log('hg', isComment);
   
   
@@ -195,7 +195,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
           {/* Header Section */}
           <div className="flex-between w-full mb-4">
             <div className="flex items-center gap-3">
-            <Link href={`profile/`} className="flex gap-3 items-center">
+            <Link href={`profile/${post?.user?.username}`} className="flex gap-3 items-center">
   {post?.user?.profileImg ? (
     <Image 
       loader={cloudinaryLoader} 
@@ -214,7 +214,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
         .toUpperCase() || "U"}
     </div>
   )}
-</Link>
+
 
     
               <div className="flex flex-col">
@@ -227,6 +227,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
                   <p className="max-sm:subtle-semibold small-regular">Benin</p>
                 </div>
               </div>
+              </Link>
             </div>
     
     <div className='flex gap-3'>

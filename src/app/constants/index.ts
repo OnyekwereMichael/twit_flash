@@ -4,6 +4,7 @@ import People from '../../../public/assets/icons/people.svg'
 import bookmark from '../../../public/assets/icons/bookmark.svg'
 import gallery_add from '../../../public/assets/icons/gallery-add.svg'
 import { INavLink } from '../types'
+import { useLogout } from '../lib/query'
 export const sidebarLinks:INavLink[] = [
     {
       imgURL: Home,

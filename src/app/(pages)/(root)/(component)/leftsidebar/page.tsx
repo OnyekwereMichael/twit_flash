@@ -41,7 +41,7 @@ const LeftSideBar = () => {
               </h1>
             </div>
           </Link>
-          <Link href={`/`} className=" flex  items-center gap-3">
+          <Link href={`/profile/${authUser?.username}`} className=" flex  items-center gap-3">
             <Image loader={cloudinaryLoader} src={authUser?.profileImg || Profile} alt="Profile_pic" className="w-14 h-14 rounded-full" width={14} height={14}/>
             <div className="flex flex-col">
               <p className="body-bold">{authUser?.fullname}</p>
