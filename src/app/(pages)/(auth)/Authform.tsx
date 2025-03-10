@@ -41,7 +41,7 @@ const AuthForm = ({ type }: { type: string }) => {
   if (isAuthenticating) return <div className="flex justify-center items-center  h-screen"><Loader /></div>;
 
   return (
-    <div className="relative min-h-screen max-sm:w-full  flex justify-center items-center bg-black overflow-hidden">
+    <div className=" min-h-screen max-sm:w-full  flex justify-center items-center overflow-hidden">
       <video
         autoPlay
         loop
@@ -49,18 +49,18 @@ const AuthForm = ({ type }: { type: string }) => {
         className="absolute top-0 left-0 w-full h-full object-cover opacity-50 max-sm:hidden"
         src={'/assets/video/vid10.mp4'}
       />
-      <video
+      {/* <video
         autoPlay
         loop
         muted
         className="absolute top-0 left-0 w-full h-full object-cover opacity-50 xl:hidden md:hidden lg:hidden"
         src={'/assets/video/vid3.mp4'}
-      />
+      /> */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative z-10  bg-[#1A1C26] bg-opacity-80 backdrop-blur-xl shadow-2xl rounded-2xl p-10 border w-[50%] border-gray-200 max-sm:p-5 max-sm:w-full"
+        className="relative z-10  lg:bg-[#1A1C26] bg-opacity-80 lg:backdrop-blur-xl lg:shadow-2xl rounded-2xl p-10 border max-sm:border-none w-[50%]  max-sm:p-1 max-sm:w-full"
       >
         <Link href="/">
           <h1 className="text-white  text-3xl font-semibold">TWIT-FLASH ✨</h1>
