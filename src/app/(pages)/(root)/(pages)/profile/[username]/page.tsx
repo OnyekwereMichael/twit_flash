@@ -1,11 +1,8 @@
 "use client";
 import { ChangeEvent, useRef, useState } from "react";
-// import Posts from "../../components/common/Posts";
-// import ProfileHeaderSkeleton from "../../components/skeletons/ProfileHeaderSkeleton";
-// import EditProfileModal from "./EditProfileModal";
 import Profile from "../../../../../../../public/assets/profilepic.svg";
 import Cover from "../../../../../../../public/assets/side-img.svg";
-// import PostCard from "../../../(component)/postcard/Postcard";
+
 
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoCalendarOutline } from "react-icons/io5";
