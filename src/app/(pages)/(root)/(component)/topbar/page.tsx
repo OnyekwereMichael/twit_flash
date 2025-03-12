@@ -4,14 +4,13 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logout from '../../../../../../public/assets/logout.svg';
-import Profile from '../../../../../../public/assets/profilepic.svg';
 import { sidebarLinksMobile } from '@/app/constants';
 import { GetAuthUser, useLogout } from '@/app/lib/query';
 import { usePathname } from 'next/navigation';
 import { IoMenu, IoClose } from 'react-icons/io5';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import cloudinaryLoader from '@/app/lib/cloudinary';
+
 
 const TopBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
