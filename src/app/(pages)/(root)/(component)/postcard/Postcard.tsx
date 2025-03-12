@@ -45,24 +45,6 @@ interface PostCardProps {
 }
 
 
-//  // Debounced function to handle redirection
-//  const debouncedRedirect = useCallback(((query: string) => {
-//   clearTimeout(debouncedRedirect.timeout);
-//   debouncedRedirect.timeout = setTimeout(() => {
-//     if (query.trim()) {
-//       router.push(`/Search?query=${encodeURIComponent(query)}`);
-//     } else {
-//       router.push("/Search");
-//     }
-//   }, 500);
-// }) as ((query: string) => void) & { timeout?: NodeJS.Timeout }, [router]);
-
-// // Store timeout on the function object
-// debouncedRedirect.timeout = undefined;
-
-
-
-
 const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?: boolean, setIsComment: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const [search, setSearch] = useState("");
   const router = useRouter();
