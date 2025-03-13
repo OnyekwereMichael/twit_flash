@@ -155,7 +155,7 @@ body{
 
   /* Left sidebar */
   .leftsidebar {
-    @apply hidden md:flex  px-6 py-6 flex-col justify-between min-w-[270px] bg-dark-4 h-screen;
+    @apply hidden xl:flex  px-6 py-6 flex-col justify-between min-w-[270px] bg-dark-4 h-screen;
   }
 
 
@@ -166,7 +166,7 @@ body{
   /* righsidebar */
 
   .rightsidebar {
-    @apply hidden md:flex  px-5 py-6 flex-col justify-between min-w-[270px] bg-dark-4 h-screen;
+    @apply hidden xl:flex  px-5 py-6 flex-col justify-between min-w-[270px] bg-dark-4 h-screen;
   }
 
     /* Post Card */

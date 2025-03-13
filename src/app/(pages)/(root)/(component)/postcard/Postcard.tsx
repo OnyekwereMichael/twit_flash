@@ -114,7 +114,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
   return (
     
     <section>  
-<div className={`flex max-sm:flex-col gap-4 mb-4 max-sm:mx-4 ${type === 'following' ? 'mt-4' : ''}`}>
+<div className={`xl:flex xl:flex-row md:flex-col sm:flex-col xl:px-0 md:px-5  max-sm:flex-col gap-4 mb-4 max-sm:mx-4 ${type === 'following' ? 'mt-4' : ''}`}>
   {type === 'all' && 'following' && (
  <>
  <div className="flex items-center gap-4">
@@ -140,7 +140,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
           </div>
           
           <form onSubmit={(e) => e.preventDefault()}>
-       <div className="flex gap-1 px-4 w-full rounded-lg bg-dark-4 items-center">
+       <div className="flex gap-1 px-4 xl:w-full max-sm:w-full md:w-[60%] xl:mt-0 md:mt-4  rounded-lg bg-dark-4 items-center max-sm:mt-4">
             <Image src={Search} alt="search" width={18} height={18} />
             <input type='text' placeholder='Search' value={search} className='explore-search ring-offset-0 outline-none' onChange={handleInputChange}/>
           </div>
@@ -149,7 +149,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
  </>
   ) }
         </div>
-    <div className="post-car w-[50vw] max-sm:w-full max-sm:px-3 max-h-[600px]  overflow-y-auto ">
+    <div className="post-car xl:w-[50vw] xl:px-0 md:w-full md:px-5 sm:px-5 sm:w-full max-sm:w-full max-sm:px-3 xl:max-h-[100vh] md:max-h-[100vh] sm:max-h-[800px] max-sm:max-h-[600px]  overflow-y-auto ">
        <style jsx>{`
         .post-car::-webkit-scrollbar {
           display: none;
@@ -238,7 +238,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
           </div>
     
           {/* Post Content Section */}
-          <Link href={`/`}>
+          <Link href={`profile/${post?.user?.username}`}>
             <div className="max-sm:text-[15px] font-medium leading-[140%] lg:base-medium py-5 mb-4 border-b border-gray-200">
               <p>{post?.caption}</p>
 

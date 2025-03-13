@@ -44,7 +44,7 @@ const Chat = () => {
           Show Online Users Only
         </label>
       </div>
-    <div className="post-car grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 w-[51vw]  max-h-[630px] overflow-y-auto max-sm:w-full max-sm:px-3 max-sm:gap-4">
+    <div className="post-car grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 xl:w-[51vw] md:w-[95vw] sm:w-full  xl:max-h-[630px] max-sm:max-h-[630px] md:max-h-[100vh] sm:max-h-[100vh] overflow-y-auto max-sm:w-full max-sm:px-3 max-sm:gap-4">
       <style jsx>{`
         .post-car::-webkit-scrollbar {
           display: none;

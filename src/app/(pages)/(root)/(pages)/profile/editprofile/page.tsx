@@ -44,7 +44,7 @@ const router = useRouter()
         }}
       >
         {({ isSubmitting }) => (
-          <Form className="flex flex-col gap-9 w-full h-[500px] mt-6 ">
+          <Form className="flex flex-col gap-9 w-full h-[500px] mt-6 max-sm:px-4">
             {/* Text Field */}
             <div className="flex gap-4">
             <div className="flex flex-col">
@@ -53,7 +53,7 @@ const router = useRouter()
                 as="input"
                 name="fullname"
                 placeholder="Enter your text"
-                className="shad-input rounded-md  w-[25vw] p-4 mt-2 max-sm:w-full text-sm border-none outline-none focus:ring-0 focus:border-none placeholder:text-sm"
+                className="shad-input rounded-md  xl:w-[25vw] md:w-[45vw] sm:w-[45vw] p-4 mt-2 max-sm:w-full text-sm border-none outline-none focus:ring-0 focus:border-none placeholder:text-sm"
               />
               <ErrorMessage name="fullname" component="div" className="text-red text-sm mt-2" />
             </div>
@@ -65,7 +65,7 @@ const router = useRouter()
                 as="input"
                 name="username"
                 placeholder="Enter Tags"
-                className="shad-input rounded-md  w-[25vw] p-4 mt-2 max-sm:w-full text-sm border-none outline-none focus:ring-0 focus:border-none placeholder:text-sm"
+                className="shad-input rounded-md  xl:w-[25vw] md:w-[45vw] sm:w-[45vw] p-4 mt-2 max-sm:w-full text-sm border-none outline-none focus:ring-0 focus:border-none placeholder:text-sm"
               />
               <ErrorMessage name="username" component="div" className="text-red  text-sm mt-2" />
             </div>
@@ -77,7 +77,7 @@ const router = useRouter()
                 as="input"
                 name="email"
                 placeholder="Enter Email"
-                className="shad-input rounded-md  w-[25vw] p-4 mt-2 max-sm:w-full text-sm border-none outline-none focus:ring-0 focus:border-none placeholder:text-sm"
+                className="shad-input rounded-md  xl:w-[25vw] md:w-[45vw] sm:w-[45vw] p-4 mt-2 max-sm:w-full text-sm border-none outline-none focus:ring-0 focus:border-none placeholder:text-sm"
               />
               <ErrorMessage name="email" component="div" className="text-red  text-sm mt-2" />
             </div>
@@ -88,7 +88,7 @@ const router = useRouter()
                 as="input"
                 name="bio"
                 placeholder="Enter Bio"
-                className="custom-scrollbar shad-input rounded-md  w-[25vw] p-4 mt-2 max-sm:w-full  text-sm border-none outline-none focus:ring-0 focus:border-none placeholder:text-sm"
+                className="custom-scrollbar shad-input rounded-md  xl:w-[25vw] md:w-[45vw] sm:w-[45vw] p-4 mt-2 max-sm:w-full  text-sm border-none outline-none focus:ring-0 focus:border-none placeholder:text-sm"
               />
               <ErrorMessage name="bio" component="div" className="text-red  text-sm mt-2" />
             </div>
@@ -100,7 +100,7 @@ const router = useRouter()
                 as="input"
                 name="link"
                 placeholder="Enter Bio"
-                className="shad-input rounded-md  w-[50vw] p-4 mt-2 max-sm:w-full  text-sm border-none outline-none focus:ring-0 focus:border-none placeholder:text-sm"
+                className="shad-input rounded-md  xl:w-[50vw] md:w-[90vw] sm:w-[90vw] p-4 mt-2 max-sm:w-full  text-sm border-none outline-none focus:ring-0 focus:border-none placeholder:text-sm"
               />
               <ErrorMessage name="link" component="div" className="text-red  text-sm mt-2" />
             </div>
@@ -112,7 +112,7 @@ const router = useRouter()
                 as="input"
                 name="currentPassword"
                 placeholder="Enter Bio"
-                className="shad-input rounded-md  w-[50vw] p-4 mt-2 max-sm:w-full  text-sm border-none outline-none focus:ring-0 focus:border-none placeholder:text-sm"
+                className="shad-input rounded-md  xl:w-[50vw] md:w-[90vw] sm:w-[90vw] p-4 mt-2 max-sm:w-full  text-sm border-none outline-none focus:ring-0 focus:border-none placeholder:text-sm"
               />
               <ErrorMessage name="currentPassword" component="div" className="text-red text-sm mt-2" />
             </div>
@@ -123,7 +123,7 @@ const router = useRouter()
                 as="input"
                 name="newPassword"
                 placeholder="Enter Bio"
-                className="shad-input rounded-md  w-[50vw] p-4 mt-2 max-sm:w-full  text-sm border-none outline-none focus:ring-0 focus:border-none placeholder:text-sm"
+                className="shad-input rounded-md  xl:w-[50vw] md:w-[90vw] sm:w-[90vw] p-4 mt-2 max-sm:w-full  text-sm border-none outline-none focus:ring-0 focus:border-none placeholder:text-sm"
               />
               <ErrorMessage name="newPassword" component="div" className="text-red  text-sm mt-2" />
             </div>

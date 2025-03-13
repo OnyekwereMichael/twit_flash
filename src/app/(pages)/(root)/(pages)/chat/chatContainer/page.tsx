@@ -32,7 +32,7 @@ const ChatContent = () => {
   }
 
   return (
-    <div className="post-car w-[52vw] max-sm:w-full max-h-[630px] overflow-y-auto">
+    <div className="post-car xl:w-[52vw] md:w-[100vw] sm:w-[100vw]  max-sm:w-full xl:max-h-[630px] max-sm:max-h-[630px] md:max-h-[100vh] sm:max-h-[100vh] overflow-y-auto">
       <style jsx>{`
         .post-car::-webkit-scrollbar {
           display: none;

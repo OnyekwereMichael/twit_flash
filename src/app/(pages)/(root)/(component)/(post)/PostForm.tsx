@@ -58,14 +58,14 @@ const PostForm = ({ post, action }: PostFormProps) => {
       }}
     >
       {({ isSubmitting }) => (
-        <Form className="flex flex-col gap-9 w-full h-[500px]">
+        <Form className="flex flex-col gap-9 w-full xl:h-[500px] max-sm:h-[500px] md:h-[100vh] sm:h-[100vh]">
           <div className="flex flex-col">
             <label className="shad-form_label">Caption</label>
             <Field
               as="textarea"
               name="caption"
               placeholder="Enter your text"
-              className="shad-textarea custom-scrollbar w-[48vw] p-4 mt-2 max-sm:w-full placeholder:text-sm"
+              className="shad-textarea custom-scrollbar xl:w-[48vw] md:w-[90vw] sm:w-[90vw]  p-4 mt-2 max-sm:w-full placeholder:text-sm"
             />
             <ErrorMessage name="caption" component="div" className="text-red-500  text-sm mt-2" />
           </div>
@@ -76,7 +76,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
               as="textarea"
               name="tags"
               placeholder="Enter Tags"
-              className="shad-textarea custom-scrollbar w-[48vw] p-4 mt-2 max-sm:w-full placeholder:text-sm"
+              className="shad-textarea custom-scrollbar  xl:w-[48vw] md:w-[90vw] sm:w-[90vw] p-4 mt-2 max-sm:w-full placeholder:text-sm"
             />
             <ErrorMessage name="tags" component="div" className="text-red-500 text-sm mt-2" />
           </div>

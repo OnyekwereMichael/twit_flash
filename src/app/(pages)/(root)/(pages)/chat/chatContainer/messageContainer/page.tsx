@@ -105,9 +105,9 @@ const MessageContainer: React.FC<MessageProps> = ({ user }) => {
 
 
       {!Messages || Messages.length === 0 && (
-        <div className="flex flex-col items-center justify-center text-gray-400 font-bold text-2xl text-center animate-pulse">
+        <div className="flex flex-col items-center justify-center text-gray-400 font-bold xl:text-2xl max-sm:text-xl md:text-2xl text-center animate-pulse">
           <IoChatbubbleEllipsesOutline className="text-6xl mb-2 text-gray-500" /> {/* Chat icon */}
-          <p>No messages yet. <br /> Start the conversation! 💬</p>
+          <p >No messages yet. <br /> Start the conversation! 💬</p>
         </div>
       )}
     </div>

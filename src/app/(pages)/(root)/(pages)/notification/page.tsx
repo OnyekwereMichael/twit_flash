@@ -29,14 +29,14 @@ const NotificationPage = () => {
     };
 
     return (
-        <div className="w-[50vw] overflow-y-auto max-h-[630px] max-sm:w-full bg-dark-2 rounded-3xl border border-dark-4 p-5 lg:p-4 mt-4 text-gray-900">
+        <div className="xl:w-[50vw] md:w-[95vw] sm:w-[95vw] overflow-y-auto xl:max-h-[630px] max-sm:max-h-[630px] md:max-h-[100vh] sm:max-h-[100vh] max-sm:w-full bg-dark-2 rounded-3xl border border-dark-4 p-5 lg:p-4 mt-4 text-gray-900">
             {/* Header */}
             <div className="flex items-center justify-between">
                 <h2 className="text-white font-semibold text-lg">Notifications</h2>
 				{notificationData?.notifications.length >= 1 && (		
                 <div className="flex items-center gap-2 cursor-pointer" onClick={deleteNotifications}>
                     <FaTrash className="w-4 h-4 text-red-500" />
-                    <p className="text-white text-right">Delete all notifications</p>
+                    <p className="text-white text-right">Delete all <span className="max-sm:hidden">notifications</span></p>
                 </div>
 				) }
             </div>
@@ -77,7 +77,7 @@ const NotificationPage = () => {
                             {/* Profile Info */}
                             <Link
                                 href={`/profile/${notification.sender.username}`}
-                                className="flex items-center gap-4 ml-4 flex-grow"
+                                className="flex  items-center gap-4 ml-4 flex-grow"
                             >
                                 {/* Profile Image */}
                                 <div className="w-10 h-10 rounded-full overflow-hidden">
@@ -93,7 +93,7 @@ const NotificationPage = () => {
 
                                 {/* Notification Details */}
                                 <div>
-                                    <p className="text-sm text-gray-300 flex gap-2">
+                                    <p className="text-sm text-gray-300 flex flex-wrap gap-2">
                                         <span className="font-semibold text-white">
                                             @{notification.sender.username}
                                         </span>

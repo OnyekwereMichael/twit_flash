@@ -87,7 +87,7 @@ const ProfilePage: React.FC = () => {
 
   return (
     <>
-      <div className="post-car w-[52vw]  border-r border-gray-700 min-h-screen max-sm:w-full max-h-[600px]  overflow-y-auto">
+      <div className="post-car xl:w-[52vw] md:w-full sm:w-full  border-r border-gray-700 min-h-screen max-sm:w-full max-h-[600px]  overflow-y-auto">
         <style jsx>{`
           .post-car::-webkit-scrollbar {
             display: none;
