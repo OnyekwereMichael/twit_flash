@@ -6,7 +6,6 @@ import Image from "next/image";
 import { HiUserAdd } from "react-icons/hi";
 import { useFollowUser, useGetSuggestedUser } from "@/app/lib/query";
 import cloudinaryLoader from "@/app/lib/cloudinary";
-import toast from "react-hot-toast";
 
 interface RigthPanelUser {
 	_id: string;
