@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { FormikHelpers, useFormik } from "formik";
 import { authSchema, loginAuthSchema } from "@/app/lib/validation";
@@ -8,8 +8,9 @@ import { CreateUserAccount, GetAuthUser, SignInAccount } from "@/app/lib/query/i
 import { INewUser } from "@/app/types";
 import { motion } from "framer-motion";
 import Loader from "../(root)/(component)/loader/page";
-import Typewriter from "typewriter-effect";
 
+
+const words = ["Welcome to Twit Flash", "Tweet it. Flash it. Trend it!", "Stay Connected"];
 
 const AuthForm = ({ type }: { type: string }) => {
   const pathname = usePathname();
@@ -18,12 +19,29 @@ const AuthForm = ({ type }: { type: string }) => {
   const { mutate: createNewUser, isPending: isSigningUp, error: signUpError, isError: isSignUpError } = CreateUserAccount();
   const { data: isAuthenticated, isLoading: isAuthenticating } = GetAuthUser();
   const { mutate: SignInUser, isPending: isSigningIn, error: signInError, isError: isSignInError } = SignInAccount();
+  const [index, setIndex] = useState(0);
+  const [text, setText] = useState("");
 
   useEffect(() => {
     if (!isAuthenticating && isAuthenticated) {
       router.push("/");
     }
   }, [isAuthenticated, isAuthenticating, router]);
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setText(words[index].slice(0, i));
+      i++;
+
+      if (i > words[index].length) {
+        clearInterval(interval);
+        setTimeout(() => setIndex((prev) => (prev + 1) % words.length), 1000);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [index]);
 
   const onSubmit = (values: INewUser, action: FormikHelpers<INewUser>) => {
     if (type === "signup") {
@@ -65,17 +83,7 @@ const AuthForm = ({ type }: { type: string }) => {
         className="relative z-10  lg:bg-[#1A1C26] bg-opacity-80 lg:backdrop-blur-xl lg:shadow-2xl rounded-2xl p-10  max-sm:border-none w-[50%]  max-sm:p-1 max-sm:w-full"
         >
         <div className="flex  items-center mb-4 max-sm:mb-6">
-      <h1 className="text-2xl font-mono font-bold">
-        <Typewriter
-          options={{
-            strings: ["Welcome to Twit Flash", "Tweet it. Flash it. Trend it!", "Stay Connected"],
-            autoStart: true,
-            loop: true,
-            delay: 100,
-            deleteSpeed: 50,
-          }}
-        />
-      </h1>
+        <h1 className="text-2xl font-mono font-bold">{text}|</h1>
     </div>
         <Link href="/">
           <h1 className="text-white  text-3xl font-semibold">TWIT-FLASH ✨</h1>
