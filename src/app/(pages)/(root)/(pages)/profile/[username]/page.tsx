@@ -135,7 +135,7 @@ const ProfilePage: React.FC = () => {
                       onChange={(e) => handleImgChange(e, "cover")}
                     />
                     <div
-                      className="absolute top-2 right-2 rounded-full p-2 bg-gray-800 bg-opacity-75 cursor-pointer opacity-0 group-hover/cover:opacity-100 transition duration-200"
+                      className="absolute top-2 right-2 rounded-full p-2 bg-gray-800 bg-opacity-75 cursor-pointer  transition duration-200"
                       onClick={() => coverImgRef.current?.click()}
                     >
                       <MdEdit className="w-5 h-5 text-white" />
@@ -165,7 +165,7 @@ const ProfilePage: React.FC = () => {
                           onChange={(e) => handleImgChange(e, "profile")}
                         />
                         <div
-                          className="absolute top-5 right-3 p-1 bg-primary rounded-full opacity-0 group-hover/avata:opacity-100 cursor-pointer"
+                          className="absolute top-5 right-3 p-1  rounded-full cursor-pointer bg-gray-800"
                           onClick={() => profileImgRef.current?.click()}
                         >
                           <MdEdit className="w-4 h-4 text-white" />

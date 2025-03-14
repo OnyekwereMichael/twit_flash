@@ -4,6 +4,7 @@ import { updateSchema } from "@/app/lib/validation";
 import { GetAuthUser, useUpdateProfile } from "@/app/lib/query";
 import toast from "react-hot-toast";
 import { useRouter } from 'next/navigation'; 
+import Link from "next/link";
 
 
 const EditProfileModal = () => {
@@ -131,20 +132,22 @@ const router = useRouter()
   
             {/* Buttons */}
             <div className="flex justify-end items-center gap-4">
+              <Link href={`/profile/${authUser?.username}`} >
               <button type="button" className="shad-button_dark_4">
                 Cancel
               </button>
+              </Link>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="shad-button_primary  whitespace-nowrap w-[15%] flex justify-center "
+                className="shad-button_primary  whitespace-nowrap w-[15%] max-sm:w-[25%] flex justify-center "
               >
                 {isSubmitting ? (
                   <div className="flex items-center gap-2">
                     <div className="animate-spin rounded-full h-4 w-4 border-t-4 border-b-4 text-center border-white"></div>
                   </div>
                 ) : (
-                  <p className="text-center font-medium">Update</p>
+                  <p className="text-center font-medium ">Update</p>
                 )}
               </button>
             </div>

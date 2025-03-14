@@ -168,7 +168,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
       )}
 
       {posts?.map((post:PostCardProps) => {
-      const isLiked = post.likes.includes(authUser._id);
+      const isLiked = post.likes.includes(authUser?._id);
       const isMyPost = authUser._id === post?.user?._id; 
  
       

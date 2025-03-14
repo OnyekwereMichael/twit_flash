@@ -8,6 +8,7 @@ import { CreateUserAccount, GetAuthUser, SignInAccount } from "@/app/lib/query/i
 import { INewUser } from "@/app/types";
 import { motion } from "framer-motion";
 import Loader from "../(root)/(component)/loader/page";
+import Typewriter from "typewriter-effect";
 
 
 const AuthForm = ({ type }: { type: string }) => {
@@ -41,7 +42,7 @@ const AuthForm = ({ type }: { type: string }) => {
   if (isAuthenticating) return <div className="flex justify-center items-center  h-screen"><Loader /></div>;
 
   return (
-    <div className=" min-h-screen max-sm:w-full  flex justify-center items-center overflow-hidden">
+    <div className=" min-h-screen max-sm:min-h-[100vw] max-sm:mt-14 max-sm:w-full  flex justify-center items-center overflow-hidden">
       <video
         autoPlay
         loop
@@ -56,12 +57,26 @@ const AuthForm = ({ type }: { type: string }) => {
         className="absolute top-0 left-0 w-full h-full object-cover opacity-50 xl:hidden md:hidden lg:hidden"
         src={'/assets/video/vid3.mp4'}
       /> */}
+
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative z-10  lg:bg-[#1A1C26] bg-opacity-80 lg:backdrop-blur-xl lg:shadow-2xl rounded-2xl p-10  max-sm:border-none w-[50%]  max-sm:p-1 max-sm:w-full"
-      >
+        >
+        <div className="flex  items-center mb-4 max-sm:mb-6">
+      <h1 className="text-2xl font-mono font-bold">
+        <Typewriter
+          options={{
+            strings: ["Welcome to Twit Flash", "Tweet it. Flash it. Trend it!", "Stay Connected"],
+            autoStart: true,
+            loop: true,
+            delay: 100,
+            deleteSpeed: 50,
+          }}
+        />
+      </h1>
+    </div>
         <Link href="/">
           <h1 className="text-white  text-3xl font-semibold">TWIT-FLASH ✨</h1>
         </Link>
