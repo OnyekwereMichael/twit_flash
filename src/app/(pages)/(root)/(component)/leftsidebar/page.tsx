@@ -36,17 +36,24 @@ const LeftSideBar = () => {
             </div>
           </Link>
 
-          <ul className="flex flex-col gap-5">
+          <ul className="flex flex-col gap-4">
             {sidebarLinks.map((link) => {
                const dynamicRoute = link.label === "Profile" && typeof link.route === 'function' ? link.route(authUser?.username) : link.route;
                const isActive = pathname === dynamicRoute;
               return (
-                <li className={`leftsidebar-link group ${isActive && 'bg-purple-500 px-2'}`} key={link.label}>
-                  <Link href={typeof dynamicRoute === 'string' ? dynamicRoute : '#'} className="flex gap-4 items-center py-4">
-                    <Image src={link.imgURL} alt="" className={`group-hover:invert-white ${isActive && 'invert-white'} w-6 h-6`} width={6} height={6}/>
-                    <p className="font-medium text-[18px] font-Asul">{link.label}</p>
-                  </Link>
-                </li>
+                <li className={`leftsidebar-link group px-1 ${isActive && 'bg-purple-500 px-2'}`} key={link.label}>
+                <Link href={typeof dynamicRoute === 'string' ? dynamicRoute : '#'} className="flex gap-4 items-center py-4">
+                  <Image
+                    src={link.imgURL}
+                    alt=""
+                    className={`group-hover:filter group-hover:invert group-hover:brightness-0 group-hover:contrast-200 ${isActive ? 'filter invert brightness-0 contrast-200' : ''} w-6 h-6`}
+                    width={24}
+                    height={24}
+                  />
+                  <p className="font-medium text-[18px] font-Asul">{link.label}</p>
+                </Link>
+              </li>
+              
               )
             })}
           </ul>

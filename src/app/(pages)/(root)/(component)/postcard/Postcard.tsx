@@ -149,7 +149,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
  </>
   ) }
         </div>
-    <div className="post-car xl:w-[50vw] xl:px-0 md:w-full md:px-5 sm:px-5 sm:w-full max-sm:w-full max-sm:px-3 xl:max-h-[100vh] md:max-h-[100vh] sm:max-h-[800px] max-sm:max-h-[600px]  overflow-y-auto ">
+    <div className="post-car xl:w-[50vw] xl:px-0 md:w-full md:px-5 sm:px-5 sm:w-full max-sm:w-full max-sm:px-3 xl:max-h-[87vh] md:max-h-[100vh] sm:max-h-[800px] max-sm:max-h-[600px]  overflow-y-auto ">
        <style jsx>{`
         .post-car::-webkit-scrollbar {
           display: none;
@@ -160,7 +160,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
         }
       `}</style>
       {posts && posts?.length === 0 && (
-        <div className="flex flex-col items-center justify-center h-screen">
+        <div className="flex flex-col items-center justify-center ">
           <IoSadOutline className="text-gray-300 text-6xl mb-2" />
           <h1 className="text-2xl font-semibold text-gray-300">No Posts Yet</h1>
           <p className="text-gray-400">Be the first to post something!</p>
