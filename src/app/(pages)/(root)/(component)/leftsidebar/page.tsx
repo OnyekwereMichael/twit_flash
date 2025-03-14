@@ -6,26 +6,13 @@ import { sidebarLinks } from '@/app/constants'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { GetAuthUser, useLogout } from '@/app/lib/query'
-import { useRouter } from 'next/navigation'
 import cloudinaryLoader from '../../../../lib/cloudinary'
 
 const LeftSideBar = () => {
   const pathname = usePathname()
-  const router = useRouter()
-  const { mutate: logout, isError, error, isSuccess, isPending } = useLogout()
+  const { mutate: logout, isPending } = useLogout()
   const {data:authUser} = GetAuthUser()
   console.log(authUser);
-  
-
-  // Handle error state
-  if (isError) {
-    return <p>Error: {error?.message}</p>
-  }
-
-  // Redirect on success
-  if (isSuccess) {
-    router.push('/signin')  // Redirects to the sign-in page
-  }
 
   
 

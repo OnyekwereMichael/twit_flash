@@ -15,17 +15,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 const TopBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  const router = useRouter();
-  const { mutate: logout, isError, error, isSuccess } = useLogout();
+ 
+  const { mutate: logout, } = useLogout();
   const { data: authUser } = GetAuthUser();
-
-  if (isSuccess) {
-    router.push('/signin');
-  }
-
-  if (isError) {
-    console.log('Error', error);
-  }
 
   const menuVariants = {
     hidden: { y: -50, opacity: 0 },

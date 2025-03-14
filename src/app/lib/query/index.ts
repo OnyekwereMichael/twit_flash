@@ -117,32 +117,26 @@ export const SignInAccount = () => {
 }
 
 export const useLogout = () => {
+    const router = useRouter();
+    const queryClient = useQueryClient();
+  
     return useMutation({
-        mutationFn: async () => {
-            try {
-                const res = await fetch('/api/auth/logout', {
-                    method: 'POST',
-                });
-                const data = await res.json();
-                if (!res.ok) throw new Error(data.error);
-                console.log(data);
-                toast.success('Logged out successfully!');
-                disconnectUser();
-                return data;
-            } catch (error: unknown) {
-                console.error(error);
-            
-                if (error instanceof Error) {
-                    toast.error(error.message || 'Failed to Logout');
-                } else {
-                    toast.error('Failed to create user');
-                }
-            
-                throw error;
-            }
-        }
-    })
-}
+      mutationFn: async () => {
+        const res = await fetch("/api/auth/logout", { method: "POST" });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error);
+        return data;
+      },
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: ["authUser"] }); // Ensures auth state updates
+        toast.success("Logged out successfully!");
+        router.replace("/signin"); // Immediate redirection
+      },
+      onError: (error) => {
+        toast.error(error.message || "Failed to log out");
+      },
+    });
+  };
 
 export const GetAuthUser = () => {
     return useQuery({
