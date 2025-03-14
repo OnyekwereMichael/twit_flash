@@ -321,6 +321,7 @@ export const useFollowUser = () => {
                 const data = await res.json();
                 if (data.error) return null;
                 if (!res.ok) throw new Error(data.error);
+                toast.success(`User Followed successfully!`);
                 console.log(data);
                 return data;
             } catch (error: unknown) {
@@ -338,7 +339,6 @@ export const useFollowUser = () => {
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.GET_SUGGESTED_USER] });
             queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.GET_CURRENT_USER] });
-            // toast.success('User Followed successfully!');
         },
     });
 }

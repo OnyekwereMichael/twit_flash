@@ -6,6 +6,7 @@ import Image from "next/image";
 import { HiUserAdd } from "react-icons/hi";
 import { useFollowUser, useGetSuggestedUser } from "@/app/lib/query";
 import cloudinaryLoader from "@/app/lib/cloudinary";
+import toast from "react-hot-toast";
 
 interface RigthPanelUser {
 	_id: string;
@@ -23,8 +24,10 @@ const RightPanel = () => {
 	if(isErrorFollowing) {
 		console.log('Error', iserrorFollowing);
 	}
-	// const isLoading = false;
 
+	
+	console.log('the', getSuggestedUser);
+	
 	return (
 		<div className="rightsidebar">
 			<div className="flex flex-col gap-3">
