@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (    
-<div className="w-full  md:flex justify-between ">
+<div className="w-full  xl:flex justify-between ">
   <div>
     <LeftSideBar />
     <TopBar/>

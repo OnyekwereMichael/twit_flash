@@ -149,7 +149,7 @@ const PostCard = ({ type, isComment, setIsComment }: { type: string, isComment?:
  </>
   ) }
         </div>
-    <div className="post-car xl:w-[50vw] xl:px-0 md:w-full md:px-5 sm:px-5 sm:w-full max-sm:w-full max-sm:px-3 xl:max-h-[87vh] md:max-h-[100vh] sm:max-h-[800px] max-sm:max-h-[600px]  overflow-y-auto ">
+    <div className="post-car xl:w-[52vw] xl:px-0 md:w-full md:px-5 sm:px-5 sm:w-full max-sm:w-full max-sm:px-3 xl:max-h-[87vh] md:max-h-[100vh] sm:max-h-[800px] max-sm:max-h-[600px]  overflow-y-auto ">
        <style jsx>{`
         .post-car::-webkit-scrollbar {
           display: none;

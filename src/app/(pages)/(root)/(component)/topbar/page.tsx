@@ -46,21 +46,10 @@ const TopBar = () => {
         </Link>
 
         <div className="flex gap-4 items-center">
-         
-          {/* <Link href={`/`} className="flex-center gap-3">
-            <Image
-              loader={cloudinaryLoader}
-              src={authUser?.profileImg || Profile}
-              alt="Profile_pic"
-              className="w-10 h-10 rounded-full border-2 border-gray-300"
-              width={40}
-              height={40}
-            />
-          </Link> */}
           <button className="shad-button_ghost">
             <Image src={Logout} alt="Logout" onClick={() => logout()} />
           </button>
-          <div className="lg:hidden">
+          <div className="xl:hidden lg:flex md:flex sm:flex">
           <button onClick={() => setMenuOpen(!menuOpen)} className="p-2">
             {menuOpen ? <IoClose size={28} className='text-purple-500'/> : <IoMenu size={32} className='text-purple-500'/>}
           </button>

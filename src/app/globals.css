@@ -180,7 +180,7 @@ body{
 
      /* Topbar */
   .topbar {
-    @apply sticky top-0 z-50 md:hidden shadow-xl bg-dark-3 w-full;
+    @apply sticky top-0 z-50 xl:hidden shadow-xl bg-dark-3 w-full;
   }
 
    /* SHADCN COMPONENTS */
