@@ -8,7 +8,6 @@ import { sidebarLinksMobile } from '@/app/constants';
 import { GetAuthUser, useLogout } from '@/app/lib/query';
 import { usePathname } from 'next/navigation';
 import { IoMenu, IoClose } from 'react-icons/io5';
-import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
 
