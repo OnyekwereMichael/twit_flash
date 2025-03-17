@@ -47,7 +47,7 @@ const Searchbar = () => {
   };
 
   return (
-    <div className='post-car w-[50vw] max-sm:w-full max-sm:px-3 max-h-[600px] overflow-y-auto mt-6'>
+    <div className='post-car xl:w-[52vw] md:w-[50vw] max-sm:w-full max-sm:px-3 max-h-[600px] overflow-y-auto mt-6'>
       <style jsx>{`
         .post-car::-webkit-scrollbar {
           display: none;
