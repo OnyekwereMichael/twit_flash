@@ -690,6 +690,7 @@ export const useGetMessages = (mid: string) => {
       },
       enabled: !!mid, // Only run query if mid exists
       retry: true,
+      refetchInterval: 2000,
     });
 
 
