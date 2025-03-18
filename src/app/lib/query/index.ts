@@ -130,6 +130,7 @@ export const useLogout = () => {
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: ["authUser"] }); // Ensures auth state updates
         toast.success("Logged out successfully!");
+        window.location.reload();
         router.replace("/signin"); // Immediate redirection
       },
       onError: (error) => {
